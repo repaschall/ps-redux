@@ -4,7 +4,7 @@ import courses from "./courseReducer";
 
 const rootReducer = combineReducers({
   authors,
-  courses,
+  courses
 });
 
 export default rootReducer;
