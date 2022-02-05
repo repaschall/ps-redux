@@ -1,0 +1,84 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+$rt-color-default: shift-color($light, $alert-bg-scale);
+$rt-color-dark: shift-color($dark, $alert-bg-scale);
+$rt-color-info: shift-color($info, $alert-bg-scale);
+$rt-color-success: shift-color($success, $alert-bg-scale);
+$rt-color-warning: shift-color($warning, $alert-bg-scale);
+$rt-color-error: shift-color($danger, $alert-bg-scale);
+
+@import "../../../node_modules/react-toastify/scss/main.scss";
+
+.#{$rt-namespace}__toast {
+  border: $alert-border-width solid transparent;
+  &--dark {
+    border-color: shift-color($dark, $alert-border-scale);
+    color: shift-color($dark, $alert-color-scale);
+  }
+  &--default {
+    border-color: shift-color($light, $alert-border-scale);
+    color: shift-color($light, $alert-color-scale);
+  }
+  &--info {
+    border-color: shift-color($info, $alert-border-scale);
+    color: shift-color($info, $alert-color-scale);
+  }
+  &--success {
+    border-color: shift-color($success, $alert-border-scale);
+    color: shift-color($success, $alert-color-scale);
+  }
+  &--warning {
+    border-color: shift-color($warning, $alert-border-scale);
+    color: shift-color($warning, $alert-color-scale);
+  }
+  &--error {
+    border-color: shift-color($danger, $alert-border-scale);
+    color: shift-color($danger, $alert-color-scale);
+  }
+}
+
+.#{$rt-namespace}__close-button {
+  &--dark {
+    color: shift-color($dark, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $dark;
+    }
+  }
+  &--default {
+    color: shift-color($light, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $light;
+    }
+  }
+
+  &--info {
+    color: shift-color($info, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $info;
+    }
+  }
+  &--success {
+    color: shift-color($success, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $success;
+    }
+  }
+  &--warning {
+    color: shift-color($warning, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $warning;
+    }
+  }
+  &--error {
+    color: shift-color($danger, $alert-color-scale);
+    &:hover,
+    &:focus {
+      color: $danger;
+    }
+  }
+}

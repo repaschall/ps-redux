@@ -8,6 +8,7 @@ import ManageCoursePage from "./courses/ManageCoursePage";
 import PageNotFound from "./PageNotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/react-toastify.bootstrap.scss";
 
 function App() {
   return (
