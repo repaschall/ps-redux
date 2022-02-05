@@ -37,7 +37,7 @@ const CourseForm = ({
           text: author.name
         }))}
         onChange={onChange}
-        error={errors.author}
+        error={errors.authorId}
       />
 
       <TextInput
@@ -59,8 +59,8 @@ CourseForm.propTypes = {
   authors: PropTypes.array.isRequired,
   course: PropTypes.object.isRequired,
   errors: PropTypes.object,
-  onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
   saving: PropTypes.bool
 };
 
