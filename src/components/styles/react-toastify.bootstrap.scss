@@ -82,3 +82,24 @@ $rt-color-error: shift-color($danger, $alert-bg-scale);
     }
   }
 }
+
+.#{$rt-namespace}__progress-bar {
+  &--default {
+    background: $light;
+  }
+  &--dark {
+    background: $dark;
+  }
+  &--info {
+    background: $info;
+  }
+  &--success {
+    background: $success;
+  }
+  &--warning {
+    background: $warning;
+  }
+  &--error {
+    background: $danger;
+  }
+}
