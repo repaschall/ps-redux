@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import { deleteCourse, loadCourses } from "../../redux/actions/courseActions";
@@ -12,12 +11,11 @@ export function CoursesPage({
   authors,
   courses,
   deleteCourse,
+  history,
   loadAuthors,
   loadCourses,
   loading
 }) {
-  const [redirectToAddCoursePage, setRedirectToAddCoursePage] = useState(false);
-
   useEffect(() => {
     if (courses.length === 0) {
       loadCourses().catch(error => alert(`Loading courses failed ${error}`));
@@ -39,7 +37,6 @@ export function CoursesPage({
 
   return (
     <>
-      {redirectToAddCoursePage && <Redirect to="/course" />}
       <h2>Courses</h2>
       {loading ? (
         <Spinner />
@@ -47,7 +44,7 @@ export function CoursesPage({
         <>
           <button
             className="btn btn-primary mb-3 add-course"
-            onClick={() => setRedirectToAddCoursePage(true)}
+            onClick={() => history.push("/course")}
           >
             Add Course
           </button>
@@ -62,6 +59,7 @@ CoursesPage.propTypes = {
   authors: PropTypes.array.isRequired,
   courses: PropTypes.array.isRequired,
   deleteCourse: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   loadCourses: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired
