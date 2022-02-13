@@ -1,5 +1,5 @@
 import React from "react";
-import CourseForm from "./CourseForm";
+import CourseForm from "../../../src/components/courses/CourseForm";
 import { shallow } from "enzyme";
 
 function renderCourseForm(args) {

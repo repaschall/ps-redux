@@ -1,4 +1,4 @@
-import { handleResponse, handleError } from "./apiUtils";
+import { handleError, handleResponse } from "./apiUtils";
 const baseUrl = process.env.API_URL + "/courses/";
 
 export function getCourses() {

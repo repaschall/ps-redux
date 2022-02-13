@@ -1,5 +1,5 @@
-import * as courseActions from "./courseActions";
-import * as types from "./actionTypes";
+import * as courseActions from "../../../src/redux/actions/courseActions";
+import * as types from "../../../src/redux/actions/actionTypes";
 import { courses } from "../../../tools/mockData";
 import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";

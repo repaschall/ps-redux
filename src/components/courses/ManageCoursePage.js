@@ -1,12 +1,12 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
+import { newCourse } from "../../../tools/mockData";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import { loadCourses, saveCourse } from "../../redux/actions/courseActions";
-import PropTypes from "prop-types";
-import CourseForm from "./CourseForm";
-import { newCourse } from "../../../tools/mockData";
 import Spinner from "../common/Spinner";
-import { toast } from "react-toastify";
+import CourseForm from "./CourseForm";
 
 export function ManageCoursePage({
   authors,
@@ -15,6 +15,7 @@ export function ManageCoursePage({
   history,
   loadAuthors,
   loadCourses,
+  loading,
   saveCourse
 }) {
   const [course, setCourse] = useState({ ...initialCourse });
@@ -70,7 +71,7 @@ export function ManageCoursePage({
       });
   }
 
-  return authors.length === 0 || courses.length === 0 ? (
+  return loading ? (
     <Spinner />
   ) : (
     <CourseForm
@@ -91,6 +92,7 @@ ManageCoursePage.propTypes = {
   history: PropTypes.object.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   loadCourses: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   saveCourse: PropTypes.func.isRequired
 };
 
@@ -105,9 +107,10 @@ function mapStateToProps(state, ownProps) {
       ? getCourseBySlug(state.courses, slug)
       : newCourse;
   return {
+    authors: state.authors,
     course,
     courses: state.courses,
-    authors: state.authors
+    loading: state.apiCallsInProgress > 0
   };
 }
 

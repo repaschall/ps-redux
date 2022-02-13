@@ -1,4 +1,4 @@
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 $rt-color-default: shift-color($light, $alert-bg-scale);
 $rt-color-dark: shift-color($dark, $alert-bg-scale);
@@ -7,7 +7,7 @@ $rt-color-success: shift-color($success, $alert-bg-scale);
 $rt-color-warning: shift-color($warning, $alert-bg-scale);
 $rt-color-error: shift-color($danger, $alert-bg-scale);
 
-@import "../../../node_modules/react-toastify/scss/main.scss";
+@import "../../node_modules/react-toastify/scss/main.scss";
 
 $toastify-styles: (
   "default": $light,

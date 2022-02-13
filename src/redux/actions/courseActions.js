@@ -1,5 +1,5 @@
-import * as types from "./actionTypes";
 import * as courseApi from "../../api/courseApi";
+import * as types from "./actionTypes";
 import { beginApiCall, endApiCall } from "./apiStatusActions";
 
 export function createCourseSuccess(course) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CourseForm from "./CourseForm";
+import CourseForm from "../../../src/components/courses/CourseForm";
 
 function renderCourseForm(args) {
   let defaultProps = {

@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import AboutPage from "./about/AboutPage";
-import CoursesPage from "./courses/CoursesPage";
-import Header from "./common/Header";
-import HomePage from "./home/HomePage";
-import ManageCoursePage from "./courses/ManageCoursePage";
-import PageNotFound from "./PageNotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./styles/react-toastify.bootstrap.scss";
+import AboutPage from "./about/AboutPage";
+import Header from "./common/Header";
+import CoursesPage from "./courses/CoursesPage";
+import ManageCoursePage from "./courses/ManageCoursePage";
+import HomePage from "./home/HomePage";
+import PageNotFound from "./PageNotFound";
+import "./react-toastify.bootstrap.scss";
 
 function App() {
   return (

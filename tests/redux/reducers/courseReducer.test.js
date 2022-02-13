@@ -1,5 +1,5 @@
-import courseReducer from "./courseReducer";
-import * as actions from "../actions/courseActions";
+import courseReducer from "../../../src/redux/reducers/courseReducer";
+import * as actions from "../../../src/redux/actions/courseActions";
 
 it("should add course when passed CREATE_COURSE_SUCCESS", () => {
   // arrange

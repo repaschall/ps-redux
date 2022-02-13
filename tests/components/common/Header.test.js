@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../../../src/components/common/Header";
 import { mount, shallow } from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 
