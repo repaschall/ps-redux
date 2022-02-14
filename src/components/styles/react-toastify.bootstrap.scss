@@ -1,0 +1,49 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+$rt-color-default: shift-color($light, $alert-bg-scale);
+$rt-color-dark: shift-color($dark, $alert-bg-scale);
+$rt-color-info: shift-color($info, $alert-bg-scale);
+$rt-color-success: shift-color($success, $alert-bg-scale);
+$rt-color-warning: shift-color($warning, $alert-bg-scale);
+$rt-color-error: shift-color($danger, $alert-bg-scale);
+
+@import "../../../node_modules/react-toastify/scss/main.scss";
+
+$toastify-styles: (
+  "default": $light,
+  "dark": $dark,
+  "info": $info,
+  "success": $success,
+  "warning": $warning,
+  "error": $danger
+) !default;
+
+.#{$rt-namespace}__toast {
+  border: $alert-border-width solid transparent;
+  @each $name, $value in $toastify-styles {
+    &--#{$name} {
+      border-color: shift-color($value, $alert-border-scale);
+      color: shift-color($value, $alert-color-scale);
+    }
+  }
+}
+
+.#{$rt-namespace}__close-button {
+  @each $name, $value in $toastify-styles {
+    &--#{$name} {
+      color: shift-color($value, $alert-color-scale);
+      &:hover,
+      &:focus {
+        color: $value;
+      }
+    }
+  }
+}
+
+.#{$rt-namespace}__progress-bar {
+  @each $name, $value in $toastify-styles {
+    &--#{$name} {
+      background: $value;
+    }
+  }
+}
