@@ -1,3 +1,9 @@
+const authors = [
+  { id: 1, name: "Cory House", slug: "cory-house" },
+  { id: 2, name: "Scott Allen", slug: "scott-allen" },
+  { id: 3, name: "Dan Wahlin", slug: "dan-wahlin" }
+];
+
 const courses = [
   {
     id: 1,
@@ -71,11 +77,10 @@ const courses = [
   }
 ];
 
-const authors = [
-  { id: 1, name: "Cory House" },
-  { id: 2, name: "Scott Allen" },
-  { id: 3, name: "Dan Wahlin" }
-];
+const newAuthor = {
+  id: null,
+  name: ""
+};
 
 const newCourse = {
   id: null,
@@ -86,7 +91,8 @@ const newCourse = {
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
-  newCourse,
+  authors,
   courses,
-  authors
+  newAuthor,
+  newCourse
 };

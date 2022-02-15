@@ -44,6 +44,16 @@ server.use((req, res, next) => {
   next();
 });
 
+server.post("/authors/", function (req, res, next) {
+  const error = validateAuthor(req.body);
+  if (error) {
+    res.status(400).send(error);
+  } else {
+    req.body.slug = createSlug(req.body.name); // Generate a slug for new courses.
+    next();
+  }
+});
+
 server.post("/courses/", function (req, res, next) {
   const error = validateCourse(req.body);
   if (error) {
@@ -71,6 +81,11 @@ function createSlug(value) {
     .replace(/[^a-z0-9_]+/gi, "-")
     .replace(/^-|-$/g, "")
     .toLowerCase();
+}
+
+function validateAuthor(author) {
+  if (!author.name) return "Name is required.";
+  return "";
 }
 
 function validateCourse(course) {

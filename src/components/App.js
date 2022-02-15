@@ -1,8 +1,9 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "./Layout";
+import "./styles/react-toastify.bootstrap.scss";
 import "./App.scss";
+import Layout from "./Layout";
 
 function App() {
   return (
