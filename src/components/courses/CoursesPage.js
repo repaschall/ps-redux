@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { loadAuthors } from "../../redux/actions/authorActions";
@@ -9,22 +9,26 @@ import CourseList from "./CourseList";
 
 export function CoursesPage({
   authors,
-  courses,
+  courses: initialCourses,
   deleteCourse,
   history,
   loadAuthors,
   loadCourses,
   loading
 }) {
+  const [courses, setCourses] = useState([...initialCourses]);
+
   useEffect(() => {
-    if (courses.length === 0) {
+    if (initialCourses.length === 0) {
       loadCourses().catch(error => alert(`Loading courses failed ${error}`));
+    } else {
+      setCourses([...initialCourses]);
     }
 
     if (authors.length === 0) {
       loadAuthors().catch(error => alert(`Loading authors failed ${error}`));
     }
-  }, []);
+  }, [initialCourses.length]);
 
   const handleDeleteCourse = async course => {
     toast.success("Course deleted");
@@ -32,6 +36,22 @@ export function CoursesPage({
       await deleteCourse(course);
     } catch (error) {
       toast.error(`Delete failed. ${error.message}`, { autoClose: false });
+    }
+  };
+
+  const handleFilterChange = event => {
+    const { name, value } = event.target;
+
+    switch (name) {
+      case "title":
+        setCourses(
+          initialCourses.filter(course => {
+            return course.title.toLowerCase().indexOf(value.toLowerCase()) >= 0;
+          })
+        );
+        break;
+      default:
+        break;
     }
   };
 
@@ -48,7 +68,11 @@ export function CoursesPage({
           >
             Add Course
           </button>
-          <CourseList courses={courses} onDeleteClick={handleDeleteCourse} />
+          <CourseList
+            courses={courses}
+            onDeleteClick={handleDeleteCourse}
+            onFilterChange={handleFilterChange}
+          />
         </>
       )}
     </>
